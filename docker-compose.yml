@@ -1,0 +1,11 @@
+services:
+  database:
+    container_name: gympro-srv
+    image: postgres:17-alpine
+    restart: always
+    ports:
+      - "${PORT_DB}:5432"
+    environment:
+      - POSTGRES_PASSWORD=${PASSWORD_DB}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${USER_DB}
