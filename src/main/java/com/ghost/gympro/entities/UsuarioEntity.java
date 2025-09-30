@@ -6,15 +6,18 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tipos_ingresos")
-public class TipoAcesso {
+@Table(name = "usuarios")
+public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descripcion;
+    private String usuario;
 
-    @ManyToOne
-    private Estado estado;
+    private String password;
+
+    private String email;
+
+    private Boolean activo;
 
 }

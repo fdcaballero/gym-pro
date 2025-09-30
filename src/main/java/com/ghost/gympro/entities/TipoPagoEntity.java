@@ -6,14 +6,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "estados")
-public class Estado {
+@Table(name = "tipo_pagos")
+public class TipoPagoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String descripcion;
-
     private String abreviatura;
+
 }

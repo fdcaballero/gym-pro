@@ -1,24 +1,20 @@
 package com.ghost.gympro.entities;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @Entity
-@Table(name = "ingresos")
-public class Ingreso {
-
+@Table(name = "tipos_ingresos")
+public class TipoAccesoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private TipoAcesso tipoAcesso;
-
-    private LocalDateTime fecha;
+    private String descripcion;
 
     @ManyToOne
-    private Cliente cliente;
+    private EstadoEntity estado;
+
 }

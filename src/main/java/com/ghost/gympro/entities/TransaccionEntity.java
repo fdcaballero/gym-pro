@@ -11,7 +11,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "transacciones")
-public class Transaccion {
+public class TransaccionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -22,12 +22,12 @@ public class Transaccion {
     private BigDecimal monto;
 
     @ManyToOne
-    private Cliente cliente;
+    private ClienteEntity cliente;
 
     @ManyToOne
-    private Empleado empleado;
+    private EmpleadoEntity empleado;
 
     @ManyToOne
-    private TipoPago tipoPago;
+    private TipoPagoEntity tipoPago;
 
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "empleados")
-public class Empleado {
+public class EmpleadoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +22,8 @@ public class Empleado {
     @ManyToMany
     @JoinTable(name = "empleados_roles", joinColumns = @JoinColumn(name = "empleado_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id"), foreignKey = @ForeignKey(name = "empleado_roles_fk"))
-    private Set<Rol> rol;
+    private Set<RolEntity> rol;
+
+    @OneToOne
+    private UsuarioEntity usuario;
 }
