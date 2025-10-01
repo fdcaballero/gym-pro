@@ -1,9 +1,9 @@
 package com.ghost.gympro.services;
 
-import com.ghost.gympro.dtos.CrearUsuarioDTO;
 import com.ghost.gympro.domain.models.Usuario;
+import com.ghost.gympro.dtos.CrearUsuarioDTO;
 
-public interface UsuarioService {
+public interface ClienteService {
 
     Usuario findUsuarioByEmail(String email);
 
