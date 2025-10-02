@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper extends MapperBasic<UsuarioEntity, Usuario> {
 
-    @Mapping(source = "correo", target = "email")
+    @Mapping(source = "correo", target = "correo")
     UsuarioEntity toEntity(Usuario usuario);
 
     Usuario toDomain(UsuarioEntity usuarioEntity);

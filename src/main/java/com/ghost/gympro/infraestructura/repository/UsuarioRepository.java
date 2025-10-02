@@ -5,5 +5,5 @@ import com.ghost.gympro.domain.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
-    Usuario findByEmail(String email);
+    Usuario findByCorreo(String email);
 }

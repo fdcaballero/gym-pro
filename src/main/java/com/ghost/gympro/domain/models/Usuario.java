@@ -1,6 +1,7 @@
 package com.ghost.gympro.domain.models;
 
 
+import com.ghost.gympro.domain.excepcions.DomainException;
 import com.ghost.gympro.utils.PasswordValidator;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,12 +22,11 @@ public class Usuario {
     private String password;
     @Getter
     @Setter
-    private Boolean activo;
+    private Boolean activo = true;
 
     public Usuario() {
 
     }
-
 
     public void setPassword(String password) {
 
@@ -35,7 +35,6 @@ public class Usuario {
             this.password = password;
             return;
         }
-        //TODO cambiar a una excepcion personalizada
-        throw new RuntimeException(passwordValidator.validateAndGetError(password));
+        throw new DomainException(passwordValidator.validateAndGetError(password));
     }
 }

@@ -20,3 +20,9 @@ VALUES (20.00, 30, 'Básica Mensual',
         'Una membresía de bajo costo para permitir a los usuarios probar el servicio por una semana.'),
        (15.00, 30, 'Estudiantil Mensual',
         'Un plan con descuento (menor que la Básica Mensual) para un segmento específico como estudiantes.');
+
+INSERT INTO public.roles (descripcion, abreviatura)
+VALUES
+    ('Administrador', 'ADM'),
+    ('Instructor', 'INS'),
+    ('Miembro regular', 'MIR');

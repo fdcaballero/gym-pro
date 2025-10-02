@@ -29,22 +29,22 @@ public class PasswordValidator extends StringValidator {
             return "La contraseña no debe estar vacía.";
         }
         if (password.length() < 8) {
-            return "Debe tener al menos 8 caracteres.";
+            return "La contraseña debe tener al menos 8 caracteres.";
         }
         if (!password.matches(".*[0-9].*")) {
-            return "Debe contener al menos un número.";
+            return "La contraseña debe contener al menos un número.";
         }
         if (!password.matches(".*[a-z].*")) {
-            return "Debe contener al menos una letra minúscula.";
+            return "La contraseña debe contener al menos una letra minúscula.";
         }
         if (!password.matches(".*[A-Z].*")) {
-            return "Debe contener al menos una letra mayúscula.";
+            return "La contraseña debe contener al menos una letra mayúscula.";
         }
         if (!password.matches(".*[!@#$%^&*()-+].*")) {
-            return "Debe contener al menos un carácter especial (!@#$%^&*()-+).";
+            return "La contraseña debe contener al menos un carácter especial (!@#$%^&*()-+).";
         }
         if (password.matches(".*\\s.*")) {
-            return "No debe contener espacios en blanco.";
+            return "La contraseña No debe contener espacios en blanco.";
         }
 
         if (!isValid(password)) {

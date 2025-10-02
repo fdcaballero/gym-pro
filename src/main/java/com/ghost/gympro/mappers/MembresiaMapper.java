@@ -1,12 +1,13 @@
 package com.ghost.gympro.mappers;
 
+import com.ghost.gympro.dtos.projections.MembresiaProjectionResponseDTO;
 import com.ghost.gympro.infraestructura.entities.MembresiaEntity;
 import com.ghost.gympro.domain.models.Membresia;
+import org.mapstruct.Mapper;
 
-public interface MembresiaMapper {
+@Mapper(componentModel = "spring")
+public interface MembresiaMapper extends MapperBasic<MembresiaEntity, Membresia> {
 
-    MembresiaEntity toEntity(Membresia membresia);
 
-    Membresia toDomain(MembresiaEntity entity);
-
+    MembresiaProjectionResponseDTO domainToProjection(Membresia membresia);
 }

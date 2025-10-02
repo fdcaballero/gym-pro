@@ -15,7 +15,11 @@ public class ClienteEntity {
     private Long id;
     private String nombre;
     private String apellido;
+    @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
+    private String correo;
+    private String telefono;
+
 
     @OneToOne
     private UsuarioEntity usuario;

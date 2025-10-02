@@ -1,8 +1,9 @@
 package com.ghost.gympro.infraestructura.controllers;
 
-import com.ghost.gympro.dtos.ErrorDetails;
+import com.ghost.gympro.domain.excepcions.DomainException;
 import com.ghost.gympro.domain.excepcions.EmailYaRegistradoException;
 import com.ghost.gympro.domain.excepcions.RecursoNoEncontradoException;
+import com.ghost.gympro.dtos.ErrorDetails;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,6 +77,18 @@ public class GlobalExceptionHandler {
                 HttpStatus.CONFLICT.value()
         );
         return new ResponseEntity<>(details, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(DomainException.class)
+    public ResponseEntity<ErrorDetails> handleDomainException(DomainException ex, WebRequest request) {
+        
+        ErrorDetails details = new ErrorDetails(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                request.getDescription(false).replace("uri=", ""),
+                HttpStatus.CONFLICT.value()
+        );
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)

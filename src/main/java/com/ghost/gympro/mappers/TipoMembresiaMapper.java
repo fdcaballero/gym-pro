@@ -5,9 +5,6 @@ import com.ghost.gympro.domain.models.TipoMembresia;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface TipoMembresiaMapper {
+public interface TipoMembresiaMapper extends MapperBasic<TipoMembresiaEntity, TipoMembresia> {
 
-    TipoMembresiaEntity toEntity(TipoMembresia tipoMembresia);
-
-    TipoMembresia toDomain(TipoMembresiaEntity tipoMembresia);
 }

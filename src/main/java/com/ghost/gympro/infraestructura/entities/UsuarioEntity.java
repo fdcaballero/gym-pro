@@ -12,11 +12,13 @@ public class UsuarioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "usuario", unique = true, nullable = false)
     private String usuario;
 
     private String password;
 
-    private String email;
+    @Column(name = "email", unique = true, nullable = false)
+    private String correo;
 
     private Boolean activo;
 

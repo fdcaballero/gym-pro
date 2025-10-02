@@ -1,13 +1,12 @@
 package com.ghost.gympro.domain.models;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 
 @EqualsAndHashCode(callSuper = true)
 @Data
- @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente extends Persona {
 
     private Membresia membresia;

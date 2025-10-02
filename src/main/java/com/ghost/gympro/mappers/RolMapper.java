@@ -3,11 +3,9 @@ package com.ghost.gympro.mappers;
 import com.ghost.gympro.infraestructura.entities.RolEntity;
 import com.ghost.gympro.domain.models.Rol;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface RolMapper {
+public interface RolMapper extends MapperBasic<RolEntity, Rol> {
 
-    RolEntity toEntity(Rol rol);
-
-    Rol toDomain(RolEntity entity);
 }

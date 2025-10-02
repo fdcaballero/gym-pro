@@ -5,9 +5,7 @@ import com.ghost.gympro.domain.models.Transaccion;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface TransaccionMapper {
+public interface TransaccionMapper extends MapperBasic<TransaccionEntity, Transaccion> {
 
-    TransaccionEntity toEntity(Transaccion transaccion);
 
-    Transaccion toDomain(TransaccionEntity transaccionEntity);
 }

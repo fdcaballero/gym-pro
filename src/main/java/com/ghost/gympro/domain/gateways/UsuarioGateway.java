@@ -5,4 +5,6 @@ import com.ghost.gympro.domain.models.Usuario;
 public interface UsuarioGateway {
 
     Usuario findUsuarioByEmail(String email);
+
+    Usuario save(Usuario usuario);
 }

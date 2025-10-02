@@ -30,16 +30,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setUsuario(request.getUsuario());
         usuario.setCorreo(request.getCorreo());
         usuario.setPassword(request.getPassword());
-
-        Persona persona = new Persona();
-        persona.setNombre(request.getNombre());
-        persona.setApellido(request.getApellido());
-        persona.setCorreo(request.getCorreo());
-        persona.setTelefono(request.getTelefono());
-        persona.setFechaNacimiento(request.getFechaNacimiento());
-        persona.setUsuario(usuario);
-
-        return usuario;
+        return usuarioRepository.save(usuario);
     }
 
     @Override
