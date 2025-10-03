@@ -1,5 +1,6 @@
 package com.ghost.gympro.utils;
 
+import com.ghost.gympro.configurations.GoogleOAuth2TokenProvider;
 import com.ghost.gympro.dtos.NotificacionCustomDTO;
 import com.ghost.gympro.dtos.NotificacionSimpleDTO;
 import com.ghost.gympro.domain.excepcions.NotificacionException;
@@ -7,28 +8,39 @@ import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
 @Service
-@RequiredArgsConstructor
 public class MailSendService implements NotificacionSimple {
-    private final JavaMailSender mailSender;
+    private final JavaMailSenderImpl mailSender;
+    private final GoogleOAuth2TokenProvider tokenProvider;
     private final SpringTemplateEngine templateEngine;
+
+
+    public MailSendService(JavaMailSender mailSender,
+                           GoogleOAuth2TokenProvider tokenProvider,
+                           SpringTemplateEngine templateEngine) {
+        this.mailSender = (JavaMailSenderImpl) mailSender;
+        this.tokenProvider = tokenProvider;
+        this.templateEngine = templateEngine;
+    }
 
     @Override
     public void sendSimpleNotificacion(NotificacionSimpleDTO request) {
         try {
+            String accessToken = tokenProvider.getAccessToken();
+            mailSender.setPassword(accessToken);
+
             SimpleMailMessage message = new SimpleMailMessage();
-
-
+            message.setFrom(mailSender.getUsername());
             message.setTo(request.to());
             message.setSubject(request.subject());
             message.setText(request.text());
-
             mailSender.send(message);
 
         } catch (Exception e) {
