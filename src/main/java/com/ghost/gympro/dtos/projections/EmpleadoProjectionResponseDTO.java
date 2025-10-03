@@ -9,7 +9,7 @@ import java.util.Set;
 @Data
 @Builder
 public class EmpleadoProjectionResponseDTO {
-
+    private Long id;
     private String nombre;
     private String apellido;
     private String telefono;

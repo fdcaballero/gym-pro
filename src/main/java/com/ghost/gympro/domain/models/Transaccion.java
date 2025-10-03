@@ -21,4 +21,6 @@ public class Transaccion {
     private Empleado empleado;
 
     private TipoPago tipoPago;
+
+    private Factura factura;
 }

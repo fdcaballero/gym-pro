@@ -5,5 +5,5 @@ import com.ghost.gympro.dtos.projections.MembresiaProjectionResponseDTO;
 
 public interface MembresiaService {
 
-    MembresiaProjectionResponseDTO comprar(ComprarMembresiaDTO dto);
+    MembresiaProjectionResponseDTO comprarMembresia(ComprarMembresiaDTO dto);
 }

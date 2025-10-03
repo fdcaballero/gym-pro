@@ -22,6 +22,6 @@ public class MembresiaController {
 
     @PostMapping("/comprar")
     public ResponseEntity<MembresiaProjectionResponseDTO> comprar(@Valid @RequestBody ComprarMembresiaDTO dto) {
-        return ResponseEntity.ok(membresiaService.comprar(dto));
+        return ResponseEntity.ok(membresiaService.comprarMembresia(dto));
     }
 }
