@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+
 import java.util.Properties;
 
 @Configuration
@@ -14,11 +15,17 @@ public class MailConfig {
     @Value("${spring.mail.username}")
     private String gmailUsername;
 
+    @Value("${spring.mail.port}")
+    private Integer port;
+
+    @Value("${spring.mail.host}")
+    private String host;
+
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost(host);
+        mailSender.setPort(port);
         mailSender.setUsername(gmailUsername);
 
         Properties props = mailSender.getJavaMailProperties();
