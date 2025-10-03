@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -26,7 +27,7 @@ public class MailSendService implements NotificacionSimple {
 
             message.setTo(request.to());
             message.setSubject(request.subject());
-            message.setText(request.message());
+            message.setText(request.text());
 
             mailSender.send(message);
 

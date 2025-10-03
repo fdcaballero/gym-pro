@@ -1,4 +1,4 @@
 package com.ghost.gympro.dtos;
 
-public record NotificacionSimpleDTO(String to, String subject, String message) {
+public record NotificacionSimpleDTO(String to, String subject, String text) {
 }

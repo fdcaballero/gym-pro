@@ -18,11 +18,23 @@ spring:
         hbm2ddl:
           create_namespaces: true
   mail:
-    host: smtp.gmail.com
+    host: mail.sitiapp.com
     port: 587
     username: ${EMAIL}
     password: ${PASSWORD_EMAIL}
     properties:
       mail.smtp:
+#        ssl.trust: smtp.gmail.com
         auth: true
         starttls.enable: true
+
+sms:
+  base-api-url: ${SMS_API_BASE_URL}
+  auth-username: ${SMS_API_USERNAME}
+  auth-password: ${SMS_API_PASSWORD}
+#google:
+#  mail:
+#    client:
+#      id: ${CLIENT_ID}
+#      secret: ${CLIENT_ID_SECRET}
+# refresh.token:
