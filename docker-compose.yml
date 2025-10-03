@@ -1,11 +1,34 @@
 services:
+
+  gym-pro:
+    container_name: gympro
+    build: .
+    environment:
+      - PASSWORD_DB=${PASSWORD_DB}
+      - DB_NAME=${DB_NAME}
+      - USER_DB=${USER_DB}
+      - PORT_DB=${PORT_DB}
+      - HOST_DB=${HOST_DB}
+      - SERVER_PORT=${SERVER_PORT}
+    ports:
+      - "8085:8087"
+    networks:
+      - spring-network
+    depends_on:
+      - database
+
   database:
-    container_name: gympro-srv
+    container_name: gymprodb-srv
     image: postgres:17-alpine
     restart: always
+    networks:
+      - spring-network
     ports:
       - "${PORT_DB}:5432"
     environment:
       - POSTGRES_PASSWORD=${PASSWORD_DB}
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${USER_DB}
+
+networks:
+  spring-network:
