@@ -1,5 +1,13 @@
 # GYM-PRO
 
+## Requisitos
+
+- Java 17 o superior
+- Gradle
+- Docker y Docker Compose
+- Base de datos configurada (ver variables de entorno)
+
+
 ## CONFIGURACION
 
 Variables de entorno requeridas en el sistema
@@ -24,6 +32,10 @@ MAIL_HOST
 MAIL_PORT
 ```
 
+
+## Variables de entorno
+
+Configura las siguientes variables en un archivo `.env` o en tu sistema:
 ### Docker
 
 Usar este comando para levantar la base de datos y demas servicios asociados.
@@ -32,6 +44,19 @@ Usar este comando para levantar la base de datos y demas servicios asociados.
 docker compose --env-file my-env-file.env up -d
 ```
 
-### Descripcion:
+## Compilar y ejecutar el proyecto
 
-Este es 
+1. Instala las dependencias y compila el proyecto:
+
+```./gradlew clean build```
+
+2. Ejecuta la aplicación:
+```
+./gradlew bootRun
+```
+
+
+La aplicación estará disponible en el puerto configurado en la variable `SERVER_PORT`.
+
+El la documentación con swagger se encuentra en la ruta ``/swagger-ui/index.html#/``
+ 
