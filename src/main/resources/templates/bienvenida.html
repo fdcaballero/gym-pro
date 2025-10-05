@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Email de Bienvenida</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 8px; max-width: 600px; margin: 0 auto; }
+        h1 { color: #007bff; }
+        .footer { margin-top: 20px; font-size: 0.8em; color: #777; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'¡Hola, ' + ${nombreUsuario} + '!'">¡Hola, [Nombre]!</h1>
+
+    <p>Gracias por registrarte y unirte a nuestra plataforma. Tu membresía <b th:text="${tipoMembresia}">[TIPO]</b> ha sido activada correctamente.</p>
+
+    <p>Puedes acceder a tu cuenta haciendo clic en el siguiente botón:</p>
+
+    <p style="text-align: center;">
+        <a th:href="${urlAcceso}" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+            Acceder a mi Cuenta
+        </a>
+    </p>
+
+    <div class="footer">
+        <p>Este es un correo automático. Por favor no responder.</p>
+    </div>
+</div>
+</body>
+</html>
